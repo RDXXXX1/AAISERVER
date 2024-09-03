@@ -36,7 +36,7 @@ app.use(express.json()); // For parsing application/json
 
 // Google OAuth endpoint
 app.get('/auth/google', (req, res) => {
-  const redirect_uri = encodeURIComponent('http://localhost:5000/auth/google/callback');
+  const redirect_uri = encodeURIComponent('https://aaiserver.onrender.com/auth/google/callback');
   const client_id = process.env.GOOGLE_CLIENT_ID;
   const scope = encodeURIComponent('profile email');
   const response_type = 'code';
@@ -48,7 +48,7 @@ app.get('/auth/google', (req, res) => {
 // Google OAuth callback
 app.get('/auth/google/callback', async (req, res) => {
   const code = req.query.code;
-  const redirect_uri = 'http://localhost:5000/auth/google/callback';
+  const redirect_uri = 'https://aaiserver.onrender.com/auth/google/callback';
   const client_id = process.env.GOOGLE_CLIENT_ID;
   const client_secret = process.env.GOOGLE_CLIENT_SECRET;
 
