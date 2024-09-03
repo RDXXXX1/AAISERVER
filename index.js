@@ -17,7 +17,7 @@ const app = express();
 
 // CORS setup with credentials
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://aif-gold.vercel.app',
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type, Authorization'
@@ -93,7 +93,7 @@ app.get('/auth/google/callback', async (req, res) => {
     const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '14d' });
 
     // Redirect to frontend with the token
-    res.redirect(`http://localhost:3000/?token=${token}`);
+    res.redirect(`https://aif-gold.vercel.app/?token=${token}`);
   } catch (error) {
     console.error('Error during Google OAuth callback:', error);
     res.redirect('/login-failed');
